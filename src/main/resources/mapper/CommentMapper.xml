@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niko.blog.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.niko.blog.entiy.pojo.Comment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="parentId" column="parent_id" jdbcType="BIGINT"/>
+            <result property="postId" column="post_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="voteUp" column="vote_up" jdbcType="OTHER"/>
+            <result property="voteDown" column="vote_down" jdbcType="OTHER"/>
+            <result property="level" column="level" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="created" column="created" jdbcType="TIMESTAMP"/>
+            <result property="modified" column="modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,content,parent_id,
+        post_id,user_id,vote_up,
+        vote_down,level,status,
+        created,modified
+    </sql>
+</mapper>
