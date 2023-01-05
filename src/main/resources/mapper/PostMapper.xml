@@ -29,4 +29,23 @@
         comment_count,recommend,level,
         status,created,modified
     </sql>
+    <select id="selectPosts" resultType="com.niko.blog.entiy.vo.PostVo">
+        select p.*,
+               u.id as authorId,u.username as authorName,u.avatar as authorAvatar,
+               c.name as categoryName
+        from post p
+                 left join user u on u.id = p.user_id
+                 left join category c on c.id = p.category_id
+        ${ew.customSqlSegment}
+    </select>
+    <select id="selectOnePostVo" resultType="com.niko.blog.entiy.vo.PostVo">
+        select p.*,
+               u.id as authorId,u.username as authorName,u.avatar as authorAvatar,
+               c.name as categoryName
+        from post p
+                 left join user u on u.id = p.user_id
+                 left join category c on c.id = p.category_id
+            ${ew.customSqlSegment}
+    </select>
+
 </mapper>

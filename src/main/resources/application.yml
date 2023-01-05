@@ -4,6 +4,14 @@ spring:
     url: jdbc:mysql://121.199.75.2:3306/blog?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  freemarker:
+    settings:
+      classic_compatible: true
+      datetime_format: yyyy-MM-dd HH:mm
+      number_format: 0.##
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+
 
 mybatis-plus:
   configuration:

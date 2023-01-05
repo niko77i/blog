@@ -24,4 +24,11 @@
         vote_down,level,status,
         created,modified
     </sql>
+    <select id="selectComments" resultType="com.niko.blog.entiy.vo.CommentVo">
+        select c.*,
+               u.id as authorId,u.username as authorName,u.avatar as authorAvatar
+        from comment c
+                 left join user u on u.id = c.user_id
+        ${ew.customSqlSegment}
+    </select>
 </mapper>

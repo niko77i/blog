@@ -14,6 +14,7 @@ import lombok.Data;
  */
 @TableName(value ="category")
 @Data
+
 public class Category implements Serializable {
     /**
      * 主键ID

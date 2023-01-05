@@ -1,7 +1,10 @@
 package com.niko.blog.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.niko.blog.entiy.pojo.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.niko.blog.entiy.vo.CommentVo;
 
 /**
 * @author 阳
@@ -10,4 +13,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface CommentService extends IService<Comment> {
 
+    /**
+     * 获取评论的IPage对象
+     * @param page
+     * @param postId
+     * @param userId
+     * @param order
+     * @return
+     */
+    IPage<CommentVo> pageVo(Page page, Long postId, Long userId, String order);
 }
