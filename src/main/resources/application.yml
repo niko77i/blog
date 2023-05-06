@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: docker
+    active: test
 
 mybatis-plus:
   configuration:
@@ -12,5 +12,4 @@ mybatis-plus:
 file:
   upload:
     dir: ${user.dir}/upload
-server:
-  port:
+

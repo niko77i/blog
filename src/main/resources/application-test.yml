@@ -6,8 +6,7 @@ spring:
     password: 197600
   redis:
     host: 121.199.75.2
-    port: 6379
-    password: 197600
+    port: 6380
     connect-timeout: 1800000
     lettuce:
       pool:
@@ -26,10 +25,12 @@ spring:
     username: niko
     password: 197600
     host: 121.199.75.2
-    port: 5672
+    port: 5673
   data:
     elasticsearch:
       repositories:
         enabled: true
   elasticsearch:
-    uris: 127.0.0.1:9200
+    uris: 121.199.75.2:9201
+server:
+  port: 9000

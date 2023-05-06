@@ -12,6 +12,7 @@ import com.niko.blog.entiy.vo.PostVo;
 import com.niko.blog.search.mq.PostMqIndexMessage;
 import com.niko.blog.service.PostService;
 import com.niko.blog.util.ValidationUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,11 +21,10 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-
+import java.util.logging.Logger;
 
 @Controller
 public class PostController extends BaseController {
-
 
     /**
      * 博客分类
