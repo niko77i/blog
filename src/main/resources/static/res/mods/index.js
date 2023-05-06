@@ -498,7 +498,7 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
       ,shadeClose: true
       ,maxWidth: 10000
       ,skin: 'fly-layer-search'
-      ,content: ['<form action="http://cn.bing.com/search">'
+      ,content: ['<form action="/search">'
         ,'<input autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q">'
       ,'</form>'].join('')
       ,success: function(layero){
@@ -510,7 +510,7 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
           if(val.replace(/\s/g, '') === ''){
             return false;
           }
-          input.val('site:layui.com '+ input.val());
+          //input.val('site:layui.com '+ input.val());
       });
       }
     })
@@ -546,6 +546,12 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
     });
   });
 
+  //验证图片刷新
+  function refresh()
+  {
+    document.getElementById("kaptcha").src="/kaptcha.jpg";
+  };
+
   //表单提交
   form.on('submit(*)', function(data){
     var action = $(data.form).attr('action'), button = $(data.elem);
@@ -553,9 +559,13 @@ layui.define(['layer', 'laytpl', 'form', 'element', 'upload', 'util'], function(
       var end = function(){
         if(res.action){
           location.href = res.action;
-        } else {
-          fly.form[action||button.attr('key')](data.field, data.form);
         }
+        if ( button.attr('reload')){
+          location.reload();
+        }
+        // else {
+        //   fly.form[action||button.attr('key')](data.field, data.form);
+        // }
       };
       if(res.status == 0){
         button.attr('alert') ? layer.alert(res.msg, {

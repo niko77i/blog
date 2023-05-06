@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 /**
  * 
  * @TableName user
@@ -24,16 +27,20 @@ public class User implements Serializable {
     /**
      * 昵称
      */
+    @NotBlank(message = "用户名不能为空")
     private String username;
 
     /**
      * 密码
      */
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     /**
      * 邮件
      */
+    @Email
+    @NotBlank(message = "邮箱不能为空")
     private String email;
 
     /**
@@ -44,7 +51,7 @@ public class User implements Serializable {
     /**
      * 积分
      */
-    private Object point;
+    private Integer point;
 
     /**
      * 个性签名
@@ -79,12 +86,17 @@ public class User implements Serializable {
     /**
      * 内容数量
      */
-    private Object postCount;
+    private Integer postCount;
 
     /**
      * 评论数量
      */
-    private Object commentCount;
+    private Integer commentCount;
+
+    /**
+     * 地址
+     */
+    private String address;
 
     /**
      * 状态

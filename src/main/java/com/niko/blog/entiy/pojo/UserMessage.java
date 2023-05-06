@@ -6,7 +6,10 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * 
@@ -14,6 +17,8 @@ import lombok.Data;
  */
 @TableName(value ="user_message")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserMessage implements Serializable {
     /**
      * 
@@ -48,6 +53,9 @@ public class UserMessage implements Serializable {
 
     /**
      * 消息类型
+     * 0 系统消息
+     * 1 评论文章
+     * 2 别人评论了你的评论
      */
     private Integer type;
 

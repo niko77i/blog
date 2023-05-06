@@ -1,17 +1,6 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://121.199.75.2:3306/blog?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: 123456
-  freemarker:
-    settings:
-      classic_compatible: true
-      datetime_format: yyyy-MM-dd HH:mm
-      number_format: 0.##
-    suffix: .ftl
-    template-loader-path: classpath:/templates/
-
+  profiles:
+    active: docker
 
 mybatis-plus:
   configuration:
@@ -19,3 +8,9 @@ mybatis-plus:
     auto-mapping-behavior: full
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath*:mapper/**/*Mapper.xml
+
+file:
+  upload:
+    dir: ${user.dir}/upload
+server:
+  port:

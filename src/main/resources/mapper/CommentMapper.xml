@@ -31,4 +31,12 @@
                  left join user u on u.id = c.user_id
         ${ew.customSqlSegment}
     </select>
+    <select id="getAskMess" resultType="com.niko.blog.entiy.vo.AskMess">
+        SELECT  c.content as comment,p.title,c.created, p.id as postId
+        FROM comment c left join post p
+        on c.post_id = p.id
+        WHERE c.user_id = ${userId} AND
+            /*获取三天内的*/
+            c.created > DATE_SUB(NOW(),INTERVAL 3 day);
+    </select>
 </mapper>

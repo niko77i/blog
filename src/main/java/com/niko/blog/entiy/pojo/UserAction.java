@@ -19,7 +19,7 @@ public class UserAction implements Serializable {
      * 
      */
     @TableId
-    private String id;
+    private Long id;
 
     /**
      * 用户ID

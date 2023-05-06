@@ -23,4 +23,30 @@
         type,created,modified,
         status
     </sql>
+    <select id="selectMessages" resultType="com.niko.blog.entiy.vo.UserMessageVo">
+
+        SELECT
+            m.*,
+            ( SELECT username
+              FROM `USER`
+              WHERE id = m.from_user_id
+            ) AS fromUserName,
+            ( SELECT title
+              FROM post
+              WHERE id = m.post_id
+            ) AS postTitle,
+            ( SELECT
+                  (
+                      SELECT c2.content
+                      from `comment` c2
+                      WHERE c2.id = c1.parent_id
+                  )
+              from `comment` c1
+              where c1.id = m.comment_id
+            ) as myContent
+        FROM
+            user_message m
+        ${ew.customSqlSegment}
+    </select>
+
 </mapper>

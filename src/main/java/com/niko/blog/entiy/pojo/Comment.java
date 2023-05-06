@@ -7,13 +7,17 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * 
  * @TableName comment
  */
-@TableName(value ="comment")
+
 @Data
+@Accessors(chain = true)
+@TableName(value ="comment")
 public class Comment implements Serializable {
     /**
      * 主键ID

@@ -34,4 +34,22 @@ public interface PostService extends IService<Post> {
      * @return
      */
     PostVo selectOnePost(QueryWrapper<Post> wrapper);
+
+    /**
+     * 本章热议文章初始化
+     */
+    void initWeekRank();
+
+    /**
+     * 对新添加的评论进行缓存处理
+     * @param postId
+     * @param isIncr
+     */
+    void incrCommentCountAndUnionForWeekRank(long postId,boolean isIncr);
+
+    /**
+     * 对文章的观看次数做缓存处理，每次刷新页面或点击文章就会刷新一次
+     * @param postVo
+     */
+    void putViewCount(PostVo postVo);
 }

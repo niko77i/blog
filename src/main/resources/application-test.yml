@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://121.199.75.2:3308/blog?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 197600
+  redis:
+    host: 121.199.75.2
+    port: 6379
+    password: 197600
+    connect-timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: 1
+        max-idle: 8
+        min-idle: 0
+  freemarker:
+    settings:
+      classic_compatible: true
+      datetime_format: yyyy-MM-dd HH:mm
+      number_format: 0.##
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+  rabbitmq:
+    username: niko
+    password: 197600
+    host: 121.199.75.2
+    port: 5672
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+  elasticsearch:
+    uris: 127.0.0.1:9200

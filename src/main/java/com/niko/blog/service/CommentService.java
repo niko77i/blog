@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.niko.blog.entiy.pojo.Comment;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.niko.blog.entiy.vo.AskMess;
 import com.niko.blog.entiy.vo.CommentVo;
+
+import java.util.List;
 
 /**
 * @author 阳
@@ -22,4 +25,12 @@ public interface CommentService extends IService<Comment> {
      * @return
      */
     IPage<CommentVo> pageVo(Page page, Long postId, Long userId, String order);
+
+
+    /**
+     * 相关回答
+     * @param userId
+     * @return
+     */
+    List<AskMess> getAskMess(Long userId);
 }

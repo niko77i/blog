@@ -24,7 +24,7 @@ public class PostsTemplate extends TemplateDirective {
 
         Integer level = handler.getInteger("level");
         Integer pageCurrent = handler.getInteger("pageCurrent", 1);
-        Integer pageSize = handler.getInteger("pageSize", 2);
+        Integer pageSize = handler.getInteger("pageSize", 10);
         Long categoryId = handler.getLong("categoryId");
 
         IPage page = postService.pageVo(new Page(pageCurrent, pageSize), categoryId, null, level, null, "created");

@@ -7,6 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+import lombok.experimental.Accessors;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * 
@@ -14,6 +18,7 @@ import lombok.Data;
  */
 @TableName(value ="post")
 @Data
+@Accessors(chain = true)
 public class Post implements Serializable {
     /**
      * 主键ID
@@ -24,11 +29,13 @@ public class Post implements Serializable {
     /**
      * 标题
      */
+    @NotBlank(message = "标题不能为空")
     private String title;
 
     /**
      * 内容
      */
+    @NotBlank(message = "内容不能为空")
     private String content;
 
     /**
@@ -39,6 +46,7 @@ public class Post implements Serializable {
     /**
      * 
      */
+    @NotNull(message = "分类不能为空")
     private Long categoryId;
 
     /**
@@ -49,17 +57,17 @@ public class Post implements Serializable {
     /**
      * 支持人数
      */
-    private Object voteUp;
+    private Integer voteUp;
 
     /**
      * 反对人数
      */
-    private Object voteDown;
+    private Integer voteDown;
 
     /**
      * 访问量
      */
-    private Object viewCount;
+    private Integer viewCount;
 
     /**
      * 评论数量

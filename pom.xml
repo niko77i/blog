@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.7</version>
+        <version>2.7.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.niko</groupId>
@@ -15,6 +15,8 @@
     <description>blog</description>
     <properties>
         <java.version>1.8</java.version>
+        <!-- 自己定义es版本，保证与安装版本一直 7.8.0-->
+<!--        <elasticsearch.version>7.8.0</elasticsearch.version>-->
     </properties>
     <dependencies>
         <dependency>
@@ -28,6 +30,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--websocket-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
 
         <dependency>
@@ -71,6 +78,56 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.9</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.1.17</version>
+        </dependency>
+
+        <!--图片验证码-->
+        <dependency>
+            <groupId>com.github.axet</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>0.0.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!--shiro权限框架-->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.mingsoft</groupId>
+            <artifactId>shiro-freemarker-tags</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <!-- es  -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId><!--netty-->
+        </dependency>
+
+        <!--整合rabbitmq-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+
     </dependencies>
 
 
